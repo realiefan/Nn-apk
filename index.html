@@ -1,34 +1,14 @@
-<!---
 
-author: sebastianbenz
-
---->
-<!--
-  ## Introduction
-
-  Use [`amp-iframe`](/content/amp-dev/documentation/components/reference/amp-iframe-v0.1.md) for embedding content into AMP files via iframe. Useful for displaying content otherwise not (yet) supported by AMP.
-
-  Note: We're using [Vimeo](https://vimeo.com/) embeds here for an example, but any kind of content works. If you're interested in embedding Vimeo in AMP, it's recommended that you use the provided [`amp-vimeo` component](/content/amp-dev/documentation/components/reference/amp-vimeo-v0.1.md) instead.
--->
-<!-- -->
 <!doctype html>
 <html ⚡ lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <title>amp-iframe</title>
   <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <!--  Import the amp-iframe component in the header. -->
-  <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-  <!-- You can use the `amp-bind` extension to dynamically port -->
-  <!--
-    Iframes must be either 600px away from the top or not within the first 75% of the viewport when
-    scrolled to the top - whichever is smaller. This example might not work depending on your screen
-    width. In that case it will only show a loading indicator.
-  -->
-  
 
-  <!-- ## Placeholder -->
-  <!-- The 600px away from the top constraint can be avoided by adding a placeholder image. -->
+  <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+
   <amp-iframe width="500"
               height="1000"
               title="Netflix House of Cards branding: The Stack"
@@ -40,45 +20,5 @@ author: sebastianbenz
     <amp-img layout="fill" src="https://i.vimeocdn.com/video/536538454_640.webp" placeholder></amp-img>
   </amp-iframe>
 
-  <!-- ## Giphy -->
-  <!-- Here is another iframe sample embedding an animated GIF from [Giphy](https://giphy.com). -->
-  
-
-  <!-- ## Google Maps -->
-  <!--
-    Embedding Google Maps is possible via the [Google Maps Embed API](https://developers.google.com/maps/documentation/embed/guide) and requires an [API Key](https://developers.google.com/maps/documentation/embed/guide#api_key). Make sure your API key allows requests from the ampproject.org domain.
-  -->
-
-
-  <!-- ## Resizable iframe -->
-  <!--
-    One important feature of `amp-iframe` is the ability to resize the iframe  at runtime. For this to work:
-    * The `amp-iframe` must set the `allow-same-origin` sandbox attribute.
-    * The `amp-iframe` must be defined with the `resizable` attribute.
-    * The `amp-iframe` must have an `overflow` child element.
-    * The iframe document must send an `embed-size` request:
-
-```js
-window.parent.postMessage({
-  sentinel: 'amp',
-  type: 'embed-size',
-  height: document.body.scrollHeight
-}, '*');```
-
-    The following example demonstrates two resizing use cases:
-
-    1. **Resize on load:** the iframe size is initially set to `150x150`px via the `amp-iframe` layout. On page load, the embedded iframe will resize itself to `200x200`px.
-    2. **Resize on user interaction:** pressing the button will resize the iframe to `300x300`px.
-
-  -->
-
-  <!-- ## Dynamically changing the iframe src -->
-  <!--
-    With `amp-bind` the `src` for iframes embedded with `amp-iframe` can be changed.
-  -->
- 
-
-
- 
 </body>
 </html>
