@@ -2,7 +2,7 @@
       "relation": ["delegate_permission/common.handle_all_urls"],
       "target": {
         "namespace": "android_app",
-        "package_name": "work.nostrnet.dev.twa",
-        "sha256_cert_fingerprints": ["E2:5B:F1:4B:54:05:49:BC:6E:E1:6A:0A:DE:52:3F:2D:D5:F1:82:57:84:EB:94:89:6D:F5:EF:55:4C:FC:D9:6B"]
+        "package_name": "work.nostrnet.apk.twa",
+        "sha256_cert_fingerprints": ["2F:F7:3E:65:40:48:C2:EE:AF:5E:06:6E:EA:FF:BE:C3:71:E3:62:88:6A:94:E8:F6:14:F4:A0:0E:61:90:07:25"]
       }
     }]
