@@ -12,7 +12,29 @@
       navigator.serviceWorker.register('sw.js');
     }
   </script>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
 
+    #container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #appObject {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body>
