@@ -1,18 +1,40 @@
-// This is the "Offline copy of pages" service worker
+// sw.js
 
-const CACHE = "pwabuilder-offline";
+const CACHE_NAME = 'nostrnet-cache-v1';
+const urlsToCache = [
+  '/',
+  '/manifest.json',
+  '/index.html',
+  'https://www.nostrnet.work/', 
+];
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => {
+        return cache.addAll(urlsToCache);
+      })
+  );
 });
 
-workbox.routing.registerRoute(
-  new RegExp('/*'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE
-  })
-);
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        // Clone the response to use it in the browser and cache
+        const responseClone = response.clone();
+
+        // Cache the fetched resource
+        caches.open(CACHE_NAME)
+          .then((cache) => {
+            cache.put(event.request, responseClone);
+          });
+
+        return response;
+      })
+      .catch(() => {
+        // If network request fails, try to fetch from cache
+        return caches.match(event.request);
+      })
+  );
+});
