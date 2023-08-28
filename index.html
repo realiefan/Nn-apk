@@ -1,30 +1,24 @@
-
 <!doctype html>
 <html ⚡ lang="en">
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="manifest.json">
   <meta charset="utf-8">
   <title>NostrNet</title>
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-
-  <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-
-  <amp-iframe width="500"
-              height="1100"
-              title="Netflix House of Cards branding: The Stack"
-              layout="responsive"
-              sandbox="allow-scripts allow-same-origin allow-popups"
-              allowfullscreen
-              frameborder="0"
-              src="https://nostrnet.work/">
-    <amp-img layout="fill" src="https://i.vimeocdn.com/video/536538454_640.webp" placeholder></amp-img>
-  </amp-iframe>
+  
   <script>
-  if (typeof navigator.serviceWorker !== 'undefined') {
-    navigator.serviceWorker.register('sw.js')
-  }
+    if (typeof navigator.serviceWorker !== 'undefined') {
+      navigator.serviceWorker.register('sw.js');
+    }
   </script>
 
+</head>
+
+<body>
+  <div id="container">
+    <object id="appObject" data="https://nostrnet.work/" type="text/html" width="100%" height="100%"></object>
+  </div>
 </body>
+
 </html>
